@@ -1,6 +1,18 @@
 from flask import Flask, jsonify, request, Response
+from flask_httpauth import HTTPBasicAuth
 
 app = Flask(__name__)
+auth = HTTPBasicAuth()
+
+# Usuarios para autenticación
+usuarios = {
+    "admin": "password123",  }
+
+# Función para verificar las credenciales
+@auth.verify_password
+def verify_password(username, password):
+    if username in usuarios and usuarios[username] == password:
+        return username
 
 # Base de datos simulada
 base_datos = {
