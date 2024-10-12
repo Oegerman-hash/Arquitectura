@@ -7,7 +7,7 @@ auth = HTTPBasicAuth()
 
 # Usuarios para autenticación
 usuarios = {
-    "admin":generate_password_hash "password123",  }
+    "admin":generate_password_hash ("password123"),  }
 
 # Función para verificar las credenciales
 @auth.verify_password
