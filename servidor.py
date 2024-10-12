@@ -6,13 +6,13 @@ app = Flask(__name__)
 auth = HTTPBasicAuth()
 
 # Usuarios para autenticación
-usuarios = {
+user = {
     "admin":generate_password_hash ("password123"),  }
 
 # Función para verificar las credenciales
 @auth.verify_password
 def verify_password(username, password):
-    if username in usuarios and check_password_hash(usuarios.get(username),
+    if username in user and check_password_hash(user.get(username),
                                                  password):
         return username
 
