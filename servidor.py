@@ -12,7 +12,7 @@ usuarios = {
 # Función para verificar las credenciales
 @auth.verify_password
 def verify_password(username, password):
-    if username in usuarios and check_password_hash(users.get(username),
+    if username in usuarios and check_password_hash(usuarios.get(username),
                                                  password):
         return username
 
