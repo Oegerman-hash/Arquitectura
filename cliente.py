@@ -1,12 +1,12 @@
 import requests
-
+from requests.auth import HTTPBasicAuth
 
 # URL del servidor
 BASE_URL = 'http://localhost:5000/usuarios'
 
 # Función para obtener todos los usuarios
 def obtener_usuarios():
-    response = requests.get(BASE_URL)
+    response = requests.get(BASE_URL,auth=HTTPBasicAuth('admin', 'password123'))
     if response.status_code == 200:
         usuarios = response.json()
         print("Usuarios encontrados:")
